@@ -2,6 +2,10 @@ set -g fish_greeting
 
 fish_add_path -m ~/.local/bin
 
+if test -d /opt/homebrew
+    /opt/homebrew/bin/brew shellenv | source
+end
+
 if status is-interactive
     if type -q starship
         set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
